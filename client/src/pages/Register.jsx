@@ -25,7 +25,8 @@ const Wrapper = styled.div`
   height: 80%;
 `;
 
-const Title = styled.h1`
+const Title = styled.h1
+`
   font-size: 24px;
   font-weight: 500;
   display: flex;

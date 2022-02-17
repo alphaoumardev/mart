@@ -10,8 +10,6 @@ import { useEffect, useState } from "react";
 import { userRequest } from "../requestMethods";
 import { useHistory } from "react-router";
 
-const KEY = process.env.REACT_APP_STRIPE;
-
 const Container = styled.div``;
 
 const Wrapper = styled.div`
@@ -199,7 +197,7 @@ const Cart = () => {
                 <Bottom>
                     <Info>
                         {cart.products.map((product) => (
-                            <Product>
+                            <Product key={product._id}>
                                 <ProductDetail>
                                     <Image src={product.img} />
                                     <Details>
@@ -248,14 +246,14 @@ const Cart = () => {
                             <SummaryItemPrice>$ {cart.total}</SummaryItemPrice>
                         </SummaryItem>
                         <StripeCheckout
-                            name="Lama Shop"
-                            image="https://avatars.githubusercontent.com/u/1486366?v=4"
+                            name="Diallo shop"
+                            image="https://diallo.oss-cn-shanghai.aliyuncs.com/photos/diallo.jpg"
                             billingAddress
                             shippingAddress
                             description={`Your total is $${cart.total}`}
                             amount={cart.total * 100}
                             token={onToken}
-                            stripeKey={KEY}
+                            stripeKey={process.env.REACT_APP_STRIPE}
                         >
                             <Button>CHECKOUT NOW</Button>
                         </StripeCheckout>

@@ -12,7 +12,8 @@ const Success = () => {
     const [orderId, setOrderId] = useState(null);
 
     useEffect(() => {
-        const createOrder = async () => {
+        const createOrder = async () =>
+        {
             try {
                 const res = await userRequest.post("/orders", {
                     userId: currentUser._id,
